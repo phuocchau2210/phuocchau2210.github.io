@@ -1,0 +1,21 @@
+{
+  "name": "micro-frontend-reactjs-with-cors",
+  "private": true,
+  "workspaces": [
+    "./server",
+    "./service-1",
+    "./service-2",
+    "./shell",
+    "./shell-nextjs"
+  ],
+  "version": "0.0.0",
+  "scripts": {
+    "start": "concurrently \"npm --prefix server run start\" \"npm --prefix service-1 run start\" \"npm --prefix service-2 run start\" \"npm --prefix shell-nextjs run dev\"",
+    "start-component": "concurrently \"npm --prefix server run start\" \"npm --prefix service-1 run start-component\" \"npm --prefix service-2 run start-component\" \"npm --prefix shell run start\"",
+    "build": "concurrently \"npm --prefix server run build\" \"npm --prefix service-1 run build\" \"npm --prefix service-2 run build\"",
+    "serve": "concurrently \"npm --prefix server run start\" \"npm --prefix service-1 run start\" \"npm --prefix service-2 run start\""
+  },
+  "dependencies": {
+    "concurrently": "7.6.0"
+  }
+}
